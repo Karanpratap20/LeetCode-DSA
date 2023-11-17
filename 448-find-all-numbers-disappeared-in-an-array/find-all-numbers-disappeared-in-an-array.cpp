@@ -18,7 +18,7 @@ public:
                 j++;
             }
         }
-        for (int k = j; k <= n; ++k) {
+        for (int k = j; k <= n; k++) {
             ans.push_back(k);
         }
         return ans;
