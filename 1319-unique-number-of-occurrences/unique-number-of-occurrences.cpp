@@ -10,7 +10,6 @@ public:
             s.insert(it.second);
         }
 
-        if(mp.size()==s.size()) return true;
-        return false;
+        return mp.size()==s.size();
     }
 };
