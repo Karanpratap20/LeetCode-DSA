@@ -10,22 +10,24 @@
  * };
  */
 class Solution {
-    void in(TreeNode* root,vector<int>& v){
-        if(root==NULL) return;
+    int min_diff=100001;
+    int prev=-1;
+    int in(TreeNode* root){
+        if(root==NULL) return min_diff;
 
-        in(root->left,v);
-        v.push_back(root->val);
-        in(root->right,v);
+        in(root->left);
+        if(prev!=-1){
+            min_diff=min(min_diff,root->val-prev);
+        }
+        if(root!=NULL){
+            prev=root->val;
+        }
+        in(root->right);
+
+        return min_diff;
     }
 public:
     int getMinimumDifference(TreeNode* root) {
-        vector<int> v;
-        in(root,v);
-        int mx=100001;
-        for(int i=1;i<v.size();i++){
-            int x=abs(v[i]-v[i-1]);
-            mx=min(mx,x);
-        }
-        return mx;
+        return in(root);
     }
 };
