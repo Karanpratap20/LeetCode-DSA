@@ -6,6 +6,7 @@ public:
         for(char& it:s){
             mp[it]++;
         }
+        
         int count=0;
         for(char& it:s){
             if(mp.find(it)!=mp.end()){
