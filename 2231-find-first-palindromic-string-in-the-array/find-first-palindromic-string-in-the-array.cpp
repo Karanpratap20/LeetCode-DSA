@@ -1,31 +1,18 @@
 class Solution {
 public:
-    string firstPalindrome(vector<string>& words) {
-        string ans;
-        for(int a=0;a<words.size();a++)
-        {
-            int i=0;
-            int j=words[a].length()-1;
-            bool y=true;
-            while(i<=j)
-            {
-                if(words[a][i]==words[a][j])
-                {
-                    i++;
-                    j--;               
-                }
-                else{
-                    y=false;
-                    i++;
-                    j--;
-                }
-            }
-            if(y)
-            {
-                ans=words[a];
-                break;
-            }
+    bool pal(string& s){
+        int i=0,j=s.size()-1;
+        while(i<j){
+            if(s[i]!=s[j]) return false;
+            i++;
+            j--;
         }
-        return ans;
+        return true;
+    }
+    string firstPalindrome(vector<string>& words) {
+        for(int i=0;i<words.size();i++){
+            if(pal(words[i])) return words[i];
+        }
+        return "";
     }
 };
