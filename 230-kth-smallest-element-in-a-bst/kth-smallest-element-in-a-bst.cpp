@@ -11,16 +11,16 @@
  */
 class Solution {
 public:
-    priority_queue<int> pq;
-    void fun(TreeNode* root){
+    void fun(TreeNode* root,priority_queue<int>& pq){
         if(root==NULL) return;
 
-        fun(root->left);
+        fun(root->left,pq);
         pq.push(root->val);
-        fun(root->right);
+        fun(root->right,pq);
     }
     int kthSmallest(TreeNode* root, int k) {
-        fun(root);
+        priority_queue<int> pq;
+        fun(root,pq);
 
         while(pq.size()!=k){
             pq.pop();
