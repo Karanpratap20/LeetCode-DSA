@@ -4,10 +4,8 @@ public:
         int sum=0;
         for(int i=0;i<tickets.size();i++){
             sum+=min(tickets[i],tickets[k]);
-            if(i>k){
-                if(tickets[i]>=tickets[k]){
-                    sum--;
-                }
+            if(i>k && tickets[i]>=tickets[k]){
+                sum--;
             }
         }
 
