@@ -32,8 +32,6 @@ public:
             else if(nums[i]>a){
                 a=nums[i];
             }
-        }
-        for(int i=3;i<nums.size();i++){
             if(nums[i]<d){
                 f=e;
                 e=d;
@@ -47,7 +45,7 @@ public:
                 f=nums[i];
             }
         }
-
+        
         int x=a*b*c;
         int y=d*e*c;
 
