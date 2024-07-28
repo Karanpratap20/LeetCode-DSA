@@ -16,8 +16,8 @@ public:
         ListNode* ptr=head;
 
         while(ptr!=NULL && ptr->next!=NULL){
-            ListNode* x=ptr->next;
-            if(x->val==ptr->val){
+            if(ptr->val==ptr->next->val){
+                ListNode* x=ptr->next;
                 ptr->next=x->next;
                 delete(x);
             }else{
