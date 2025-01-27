@@ -6,10 +6,8 @@ public:
 
         for(int i=0;i<numCourse;i++) dist[i][i]=0;
 
-        unordered_map<int,vector<int>>adj;
 
         for(auto edge:prerequisites){
-            adj[edge[0]].push_back(edge[1]);
             dist[edge[0]][edge[1]]=1;
         }
 
