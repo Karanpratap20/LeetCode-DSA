@@ -26,4 +26,8 @@
 |  |
 | ------- |
 | [0684-redundant-connection](https://github.com/Karanpratap20/LeetCode-DSA/tree/master/0684-redundant-connection) |
+## Array
+|  |
+| ------- |
+| [3372-longest-strictly-increasing-or-strictly-decreasing-subarray](https://github.com/Karanpratap20/LeetCode-DSA/tree/master/3372-longest-strictly-increasing-or-strictly-decreasing-subarray) |
 <!---LeetCode Topics End-->
