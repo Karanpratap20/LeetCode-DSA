@@ -8,10 +8,12 @@ public:
         if(i==c.size() || target<0){
             return;
         }
-        ds.push_back(c[i]);
-        pick(c,ds,ans,i,target-c[i]);
+        if(c[i]<=target){
+            ds.push_back(c[i]);
+            pick(c,ds,ans,i,target-c[i]);
 
-        ds.pop_back();
+            ds.pop_back();
+        }
         pick(c,ds,ans,i+1,target);
     }
     vector<vector<int>> combinationSum(vector<int>& c, int target) {
