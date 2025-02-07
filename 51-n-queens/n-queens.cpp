@@ -39,6 +39,25 @@ public:
             }
         }
     }
+    void solve1(int col,vector<vector<string>>& ans,vector<string>& board,vector<int>& left,vector<int>& upperD,vector<int>& lowerD,int n){
+        if(col==n){
+            ans.push_back(board);
+            return;
+        }
+        for(int row=0;row<n;row++){
+            if(left[row]==0 && lowerD[row+col]==0 && upperD[n-1+col-row]==0){
+                board[row][col]='Q';
+                left[row]=1;
+                lowerD[row+col]=1;
+                upperD[n-1+col-row]=1;
+                solve1(col+1,ans,board,left,upperD,lowerD,n);
+                board[row][col]='.';
+                left[row]=0;
+                lowerD[row+col]=0;
+                upperD[n-1+col-row]=0;
+            }
+        }
+    }
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> ans;
         vector<string> board(n);
@@ -48,7 +67,9 @@ public:
             board[i]=s;
         }
 
-        solve(0,ans,board,n);
+        vector<int> left(n,0),lowerD(2*n-1,0), upperD(2*n-1,0);
+
+        solve1(0,ans,board,left,upperD,lowerD,n);
         return ans;
     }
 };
