@@ -1,33 +1,29 @@
 class Solution {
 private:
     bool isSafe(int row,int col,vector<string>& board,int n){
-        int duprow = row;
-      int dupcol = col;
+        int i=row,j=col;
 
-      while (row >= 0 && col >= 0) {
-        if (board[row][col] == 'Q')
-          return false;
-        row--;
-        col--;
-      }
+        while(i>=0 && j>=0){
+            if(board[i][j]=='Q') return false;
+            i--;
+            j--;
+        }
+        i=row,j=col;
 
-      col = dupcol;
-      row = duprow;
-      while (col >= 0) {
-        if (board[row][col] == 'Q')
-          return false;
-        col--;
-      }
+        while(j>=0){
+            if(board[i][j]=='Q') return false;
+            j--;
+        }
+        i=row;
+        j=col;
 
-      row = duprow;
-      col = dupcol;
-      while (row < n && col >= 0) {
-        if (board[row][col] == 'Q')
-          return false;
-        row++;
-        col--;
-      }
-      return true;
+        while(i<n && j>=0){
+            if(board[i][j]=='Q') return false;
+            i++;
+            j--;
+        }
+
+        return true;
     }
 public:
     void solve(int col,vector<vector<string>>& ans,vector<string>& board,int n){
