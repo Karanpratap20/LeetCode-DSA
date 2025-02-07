@@ -29,5 +29,10 @@
 ## Array
 |  |
 | ------- |
+| [0051-n-queens](https://github.com/Karanpratap20/LeetCode-DSA/tree/master/0051-n-queens) |
 | [3372-longest-strictly-increasing-or-strictly-decreasing-subarray](https://github.com/Karanpratap20/LeetCode-DSA/tree/master/3372-longest-strictly-increasing-or-strictly-decreasing-subarray) |
+## Backtracking
+|  |
+| ------- |
+| [0051-n-queens](https://github.com/Karanpratap20/LeetCode-DSA/tree/master/0051-n-queens) |
 <!---LeetCode Topics End-->
