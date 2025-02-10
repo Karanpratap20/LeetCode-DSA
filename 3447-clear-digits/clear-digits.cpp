@@ -3,21 +3,14 @@ public:
     string clearDigits(string s) {
         string ans;
 
-        stack<char> st;
-
         for(char it:s){
             if(it>='0' && it<='9'){
-                st.pop();
+                ans.pop_back();
             }else{
-                st.push(it);
+                ans.push_back(it);
             }
         }
-        while(!st.empty()){
-            ans+=st.top();
-            st.pop();
-        }
-
-        reverse(ans.begin(),ans.end());
+        
         return ans;
     }
 };
