@@ -9,26 +9,30 @@ public:
         return sum;
     }
     int maximumSum(vector<int>& nums) {
-        unordered_map<int,vector<int>> mp;
+        unordered_map<int,pair<int,int>> mp;
 
-        for(int& it:nums){
-            int s=sum(it);
+        for (int& it : nums) {
+            int s = sum(it);
 
-            mp[s].push_back(it);
-        }
+            // Extract current max pair for this sum value
+            auto& p = mp[s];
 
-        int mx=0;
-        for(auto& it:mp){
-            int sm=0;
-            int x=it.second.size();
-            if(x>1){
-                sort(it.second.begin(), it.second.end());
-                sm=it.second[x-1]+it.second[x-2];
+            if (it > p.first) {
+                p.second = p.first; 
+                p.first = it;       
+            } else if (it > p.second) {
+                p.second = it;      
             }
-            mx=max(mx,sm);
         }
 
-        if(mx==0) return -1;
+        int mx = -1;
+
+        for (auto& it : mp) {
+            if (it.second.second > 0) { 
+                mx = max(mx, it.second.first + it.second.second);
+            }
+        }
+
         return mx;
     }
 };
