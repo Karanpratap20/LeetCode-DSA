@@ -1,32 +1,24 @@
 class Solution {
 public:
-    bool reorderedPowerOf2(int n) {
-        if(n==1) return true;
-        vector<int> hash;
+    vector<int> freq(int n){
+        vector<int> count(10,0);
 
         while(n){
-            hash.push_back(n%10);
+            count[n%10]++;
             n/=10;
         }
 
-        sort(hash.begin(),hash.end());
+        return count;
+    }
+    bool reorderedPowerOf2(int n) {
+        vector<int> ans=freq(n);
 
-        int ans=2;
         for(int i=0;i<31;i++){
-            vector<int> arr;
-            int copy=ans;
-            while(copy){
-                arr.push_back(copy%10);
-                copy/=10;
-            }
+            int k=1<<i;
 
-            sort(arr.begin(),arr.end());
-
-            if(arr==hash) return true;
-
-            ans<<=1;
-            arr.clear();
+            if(freq(k)==ans) return true;
         }
+
         return false;
     }
 };
