@@ -8,6 +8,7 @@ public:
             if(num[i]==num[i+1] && num[i+1]==num[i+2]){
                 string triplet = num.substr(i, 3);
                 if(triplet>ans) ans=triplet;
+                i+=2;
             }
         }
 
