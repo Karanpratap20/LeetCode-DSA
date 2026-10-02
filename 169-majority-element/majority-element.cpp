@@ -17,15 +17,5 @@ public:
         }
 
         return el;
-        // int count=0;
-        // for(int i=0;i<nums.size();i++){
-        //     if(nums[i]==el){
-        //         count++;
-        //     }
-        // }
-        // if(count > (nums.size()/2)){
-        //     return el;
-        // }
-        // return -1;
     }
 };
